@@ -9,21 +9,48 @@
 #include <iostream>
 #include <fstream>
 #include <set>
+
 #include "SetDictionary.h"
+
+using namespace std;
+
+void solveAnagram ()
+{
+    return;
+}
+
+string readWords()
+{
+    string sourceWord;
+    
+    // take up sourceWord
+    cout << "Find anagrams for: ";
+    getline( cin, sourceWord );
+    
+    // remove spaces
+    for( int i = 0; i < sourceWord.size(); i++ )
+    {
+        if( sourceWord[i] == ' ' )
+        {
+            sourceWord.erase(i,1);
+            i--;
+        }
+    }
+    return sourceWord;
+}
 
 int main(int argc, const char * argv[])
 {
     ifstream fin;
     
+    // creates dictionary with first command line arg
     set<string> Dictionary = createDictionary(fin, argv[1]);
     
-    int count = 0;
-    for ( set<string>::iterator iterset = Dictionary.begin(); iterset != Dictionary.end(); iterset++ )
-    {
-        cout << count << " ";
-        cout << *iterset << endl;
-        count++;
-    }
+
+    string sourceWord = readWords();
+
+    
+    cout << sourceWord << endl;
     
     return 0;
 }
