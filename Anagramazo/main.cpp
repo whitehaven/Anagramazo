@@ -15,7 +15,15 @@ int main(int argc, const char * argv[])
 {
     ifstream fin;
     
+    set<string> Dictionary = createDictionary(fin, argv[1]);
     
+    int count = 0;
+    for ( set<string>::iterator iterset = Dictionary.begin(); iterset != Dictionary.end(); iterset++ )
+    {
+        cout << count << " ";
+        cout << *iterset << endl;
+        count++;
+    }
     
     return 0;
 }

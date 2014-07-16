@@ -14,7 +14,7 @@
 
 using namespace std;
 
-set<string> createDictionary( ifstream & fin, char dictfile[] )
+set<string> createDictionary( ifstream & fin, const char * dictfile)
 {
     set<string> Dictionary;
     
