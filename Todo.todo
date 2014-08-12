@@ -1,0 +1,5 @@
+Algorithm:
+- Design algorithm
+	- deals with spaces
+	- reports success only if all letters are used
+	- recursive
