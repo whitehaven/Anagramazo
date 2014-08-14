@@ -17,21 +17,26 @@ using namespace std;
 
 set<string> Anagrams;
 
-void solveAnagram ( int position, string sourceWord, set<string> & Dictionary, vector<bool> isUsed)
+bool prefixExists( string prefix, set<string> & Dictionary)
 {
-    //if repeat letter, die
-    if ( isUsed[position] )
-        return;
-    //if word exists but can't go on, try space and continue
+    string minusWord = prefix;
+    minusWord[minusWord.length()-1]++;
     
-    //if all letters are used and words up to now have existed, write to Anagrams
+    // does not exist - would be a failing condition in an anagram finder, etc.
+    if ( Dictionary.lower_bound(prefix) == Dictionary.lower_bound(minusWord) )
+        return false;
+    else
+        return true;
+}
+
+void solveAnagram ( int position, string sourceWord, string buildingWord, set<string> & Dictionary)
+{
     
-    //send solveAnagram to all other positions on the string
     
     return;
 }
 
-string readWords()
+string readWordstoAnagram()
 {
     string sourceWord;
     
@@ -58,19 +63,17 @@ int main(int argc, const char * argv[])
     // creates dictionary with first command line arg
     set<string> Dictionary = createDictionary(fin, argv[1]);
     
+    // process down inputted word by stripping spaces
+    string sourceWord = readWordstoAnagram();
 
-    string sourceWord = readWords();
+    
 
-    // initialize vector to see if letters are already used
-    vector<bool> isUsed;
-    for( int i = 0; i < sourceWord.size(); i++ )
-        isUsed.push_back(false);
     
     
     
     for (int i = 0; i < sourceWord.size(); i++ )
     {
-        solveAnagram(i, sourceWord, Dictionary, isUsed );
+        solveAnagram( i, sourceWord, "", Dictionary);
     }
     
     

@@ -10,7 +10,7 @@
 #define Anagramazo_Header_h
 
 #include <fstream>
-#include  <set>
+#include <set>
 
 using namespace std;
 
